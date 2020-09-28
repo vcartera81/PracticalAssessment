@@ -11,7 +11,7 @@ CREATE TABLE Currency (
 );
 GO
 
--- Insert currency records
+
 INSERT INTO Currency (Name, Code, Symbol) VALUES ('Leke', 'ALL', 'Lek');
 INSERT INTO Currency (Name, Code, Symbol) VALUES ('Dollars', 'USD', '$');
 INSERT INTO Currency (Name, Code, Symbol) VALUES ('Afghanis', 'AFN', '؋');
@@ -125,3 +125,55 @@ INSERT INTO Currency (name, Code, Symbol) VALUES ('Dong', 'VND', '₫');
 INSERT INTO Currency (name, Code, Symbol) VALUES ('Rials', 'YER', '﷼');
 INSERT INTO Currency (name, Code, Symbol) VALUES ('Zimbabwe Dollars', 'ZWD', 'Z$');
 INSERT INTO Currency (name, Code, Symbol) VALUES ('Rupees', 'INR', '₹');
+
+INSERT INTO [Category] SELECT 1, 'Salary'
+INSERT INTO [Category] SELECT 0, 'Groceries'
+INSERT INTO [Category] SELECT 0, 'Clothing'
+INSERT INTO [Category] SELECT 0, 'Entertainment'
+INSERT INTO [Category] SELECT 0, 'Services'
+INSERT INTO [Category] SELECT 0, 'Food and Drinks'
+INSERT INTO [Category] SELECT 0, 'Transportation'
+
+INSERT INTO [Recipient] SELECT 'John Doe'
+INSERT INTO [Recipient] SELECT 'Adam Sandler'
+INSERT INTO [Recipient] SELECT 'Mr Anderson'
+
+INSERT INTO [Transaction] SELECT
+'2020-02-12 16:35:11',
+'Boots',
+115.90,
+(SELECT TOP 1 [Id] FROM [Recipient] WHERE [Name] = 'John Doe'), 
+(SELECT TOP 1 [Id] FROM [Currency] WHERE [Code] = 'AUD'),
+(SELECT TOP 1 [Id] FROM [Category] WHERE [Name] = 'Clothing')
+
+INSERT INTO [Transaction] SELECT
+'2020-03-21 11:20:01',
+'Lunch',
+16.30,
+(SELECT TOP 1 [Id] FROM [Recipient] WHERE [Name] = 'Adam Sandler'), 
+(SELECT TOP 1 [Id] FROM [Currency] WHERE [Code] = 'CHF'),
+(SELECT TOP 1 [Id] FROM [Category] WHERE [Name] = 'Food and Drinks')
+
+INSERT INTO [Transaction] SELECT
+'2020-03-24 09:20:25',
+'Tram tickets',
+4.70,
+(SELECT TOP 1 [Id] FROM [Recipient] WHERE [Name] = 'Mr Anderson'), 
+(SELECT TOP 1 [Id] FROM [Currency] WHERE [Code] = 'CHF'),
+(SELECT TOP 1 [Id] FROM [Category] WHERE [Name] = 'Transportation')
+
+INSERT INTO [Transaction] SELECT
+'2020-04-01 18:55:15',
+'Jazz cafe',
+170,
+(SELECT TOP 1 [Id] FROM [Recipient] WHERE [Name] = 'John Doe'), 
+(SELECT TOP 1 [Id] FROM [Currency] WHERE [Code] = 'USD'),
+(SELECT TOP 1 [Id] FROM [Category] WHERE [Name] = 'Entertainment')
+
+INSERT INTO [Transaction] SELECT
+'2020-04-12 16:15:41',
+'Gym',
+25,
+(SELECT TOP 1 [Id] FROM [Recipient] WHERE [Name] = 'Adam Sandler'), 
+(SELECT TOP 1 [Id] FROM [Currency] WHERE [Code] = 'AUD'),
+(SELECT TOP 1 [Id] FROM [Category] WHERE [Name] = 'Services')
