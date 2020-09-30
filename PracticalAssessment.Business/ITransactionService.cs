@@ -7,5 +7,7 @@ namespace PracticalAssessment.Business
     public interface ITransactionService
     {
         public Task<IEnumerable<TransactionDto>> GetAll();
+
+        public Task<IEnumerable<GroupedTransactionDto>> GetAllGroupedByDate();
     }
 }

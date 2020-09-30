@@ -16,5 +16,9 @@ namespace PracticalAssessment.Api.Controllers
 
         [HttpGet]
         public async Task<IEnumerable<TransactionDto>> GetAll() => await _transactionService.GetAll();
+
+        [HttpGet]
+        [Route("grouped")]
+        public async Task<IEnumerable<GroupedTransactionDto>> GetAllGroupedByDates() => await _transactionService.GetAllGroupedByDate();
     }
 }
