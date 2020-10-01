@@ -1,0 +1,42 @@
+.transactions-table {
+    width: 100%;
+}
+
+.transactions-table th {
+    position: sticky;
+    top: 0;
+    background-color: #8d8d8d;
+    border-bottom: 1px solid #777;
+    padding: 4px;
+    color: #ffffffaa;
+    z-index: 2;
+}
+
+.transactions-table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.transactions-table .day-delimiter {
+    background-color: #f4f4f4;
+    color: #4e4e4e;
+}
+
+.add-new-transaction span {
+    position: relative;
+    display: inline-block;
+    top: -4px;
+    left: 6px;
+}
+
+.add-new-transaction i {
+    top: 3px;
+    position: relative;
+}
+
+.add-new-transaction {
+    cursor: pointer;
+}
+
+.add-new-transaction:hover {
+    background-color: #ccc;
+}

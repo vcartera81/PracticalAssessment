@@ -8,6 +8,7 @@ namespace PracticalAssessment.SqlDataAccess.Mappings
     {
         public void Configure(EntityTypeBuilder<Currency> builder)
         {
+            builder.ToTable("Currency");
             builder.HasKey(_ => _.Id);
 
             builder.Property(_ => _.Name).HasMaxLength(250);

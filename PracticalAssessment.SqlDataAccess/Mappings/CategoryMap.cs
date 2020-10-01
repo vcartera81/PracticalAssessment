@@ -8,6 +8,7 @@ namespace PracticalAssessment.SqlDataAccess.Mappings
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            builder.ToTable("Category");
             builder.HasKey(_ => _.Id);
 
             builder.Property(_ => _.Name).HasMaxLength(250);

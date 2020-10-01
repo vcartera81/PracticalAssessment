@@ -12,6 +12,12 @@ namespace PracticalAssessment.SqlDataAccess
 
         public DbSet<Transaction> Transactions { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Recipient> Recipients { get; set; }
+
+        public DbSet<Currency> Currencies { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -8,19 +8,17 @@ using PracticalAssessment.DataAccessContract.Entities;
 
 namespace PracticalAssessment.SqlDataAccess.Repositories
 {
-    public class TransactionRepository : ITransactionRepository
+    public class TransactionRepository : RepositoryBase<Transaction>, ITransactionRepository
     {
-        private readonly Context _context;
+        public TransactionRepository(Context context) : base(context)
+        {
+        }
 
-        public TransactionRepository(Context context) => _context = context;
-
-        private IQueryable<Transaction> FullQuery() => _context
+        protected override IQueryable<Transaction> FullQuery => Context
             .Transactions
             .Include(_ => _.Category)
             .Include(_ => _.Currency)
             .Include(_ => _.Recipient);
-
-        public async Task<IEnumerable<Transaction>> ListAsync() => await FullQuery().ToListAsync();
 
         public async Task<IEnumerable<IGrouping<DateTime, Transaction>>> ListGroupedByDateAsync()
         {

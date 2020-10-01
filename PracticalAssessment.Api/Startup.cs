@@ -1,3 +1,4 @@
+using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
@@ -26,6 +27,15 @@ namespace PracticalAssessment.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithOrigins("http://localhost:4200", "https://practicalassessment.vcartera.info")
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(10));
+            }));
+
             services.AddControllers();
 
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString")));
@@ -59,6 +69,8 @@ namespace PracticalAssessment.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

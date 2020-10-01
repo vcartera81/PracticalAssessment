@@ -11,6 +11,9 @@ namespace PracticalAssessment.SqlDataAccess
             base.Load(builder);
 
             builder.RegisterType<TransactionRepository>().As<ITransactionRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryRepository>().As<ICategoryRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<RecipientRepository>().As<IRecipientRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CurrencyRepository>().As<ICurrencyRepository>().InstancePerLifetimeScope();
         }
     }
 }

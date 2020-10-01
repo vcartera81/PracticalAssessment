@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="transactions-table">
+            <thead>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Recipient</th>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let row of transactions">
+                    <tr class="day-delimiter">
+                        <td>{{row.date.format('dddd, MMMM Do YYYY')}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="add-new-transaction" (click)="onNewTransactionRequested.emit(row.date)">
+                                <i class="material-icons">add_circle_outline</i>
+                                <span>Add new transaction</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let transaction of row.transactions">
+                        <td>{{transaction.id}}</td>
+                        <td>{{transaction.title}}</td>
+                        <td>{{transaction.amount | currency:transaction.currency.code}}</td>
+                        <td>{{transaction.category.name}}</td>
+                        <td>{{transaction.recipient.name}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

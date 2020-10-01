@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PracticalAssessment.Business;
-using PracticalAssessment.Business.DTO;
 
 namespace PracticalAssessment.Api.Controllers
 {
@@ -15,10 +13,10 @@ namespace PracticalAssessment.Api.Controllers
         public TransactionController(ITransactionService transactionService) => _transactionService = transactionService;
 
         [HttpGet]
-        public async Task<IEnumerable<TransactionDto>> GetAll() => await _transactionService.GetAll();
+        public async Task<IActionResult> GetAll() => Ok(await _transactionService.GetAll());
 
         [HttpGet]
         [Route("grouped")]
-        public async Task<IEnumerable<GroupedTransactionDto>> GetAllGroupedByDates() => await _transactionService.GetAllGroupedByDate();
+        public async Task<IActionResult> GetAllGroupedByDates() => Ok(await _transactionService.GetAllGroupedByDate());
     }
 }

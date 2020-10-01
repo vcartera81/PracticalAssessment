@@ -10,6 +10,9 @@ namespace PracticalAssessment.Business
             base.Load(builder);
 
             builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<RecipientService>().As<IRecipientService>().InstancePerLifetimeScope();
+            builder.RegisterType<CurrencyService>().As<ICurrencyService>().InstancePerLifetimeScope();
         }
     }
 }
