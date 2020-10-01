@@ -6,6 +6,6 @@ namespace PracticalAssessment.Business
 {
     public interface IRecipientService
     {
-        public Task<IEnumerable<RecipientDto>> GetAll();
+        Task<IEnumerable<RecipientDto>> GetAll();
     }
 }

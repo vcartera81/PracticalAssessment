@@ -1,3 +1,13 @@
-<div class="col-md-8">
-    <app-transaction-list (onNewTransactionRequested)="onNewTransactionRequested($event)"></app-transaction-list>
+<div class="row">
+    <div class="col-md-8">
+        <p class="page-label">Transactions</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <app-transaction-list (onNewTransactionRequested)="onNewTransactionRequested($event)" 
+        (onTransactionEditRequested)="onTransactionEditRequested($event)"
+        (onTransactionDeleteRequested)="onTransactionDeleteRequested($event)">
+    </app-transaction-list>
+    </div>
 </div>

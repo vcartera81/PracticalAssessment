@@ -2,7 +2,7 @@
 
 namespace PracticalAssessment.DataAccessContract
 {
-    public interface ICategoryRepository : IListAllOperationRepository<Category>
+    public interface ICategoryRepository : IReadOnlyOperationRepository<Category>
     {
     }
 }

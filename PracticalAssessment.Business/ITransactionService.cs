@@ -6,8 +6,14 @@ namespace PracticalAssessment.Business
 {
     public interface ITransactionService
     {
-        public Task<IEnumerable<TransactionDto>> GetAll();
+        Task<IEnumerable<TransactionDto>> GetAll();
 
-        public Task<IEnumerable<GroupedTransactionDto>> GetAllGroupedByDate();
+        Task<IEnumerable<GroupedTransactionDto>> GetAllGroupedByDate();
+
+        Task<int> Add(TransactionDto newTransaction);
+
+        Task Update(TransactionDto updatedTransaction);
+
+        Task Delete(int transactionId);
     }
 }

@@ -6,6 +6,6 @@ namespace PracticalAssessment.Business
 {
     public interface ICurrencyService
     {
-        public Task<IEnumerable<CurrencyDto>> GetAll();
+        Task<IEnumerable<CurrencyDto>> GetAll();
     }
 }

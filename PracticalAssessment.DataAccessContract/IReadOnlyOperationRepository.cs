@@ -4,8 +4,10 @@ using PracticalAssessment.DataAccessContract.Entities;
 
 namespace PracticalAssessment.DataAccessContract
 {
-    public interface IListAllOperationRepository<TEntity> where TEntity : EntityBase
+    public interface IReadOnlyOperationRepository<TEntity> where TEntity : EntityBase
     {
-        public Task<IEnumerable<TEntity>> ListAsync();
+        Task<IEnumerable<TEntity>> ListAsync();
+
+        Task<bool> Exists(int key);
     }
 }

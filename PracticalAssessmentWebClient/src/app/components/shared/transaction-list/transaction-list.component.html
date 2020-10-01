@@ -7,11 +7,13 @@
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Recipient</th>
+                <th></th>
             </thead>
             <tbody>
                 <ng-container *ngFor="let row of transactions">
                     <tr class="day-delimiter">
                         <td>{{row.date.format('dddd, MMMM Do YYYY')}}</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -28,6 +30,10 @@
                         <td>{{transaction.amount | currency:transaction.currency.code}}</td>
                         <td>{{transaction.category.name}}</td>
                         <td>{{transaction.recipient.name}}</td>
+                        <td>
+                            <i title="Edit this transaction" class="material-icons button-like" (click)="onTransactionEditRequested.emit(transaction)">edit</i>
+                            <i title="Delete this transaction" class="material-icons button-like" (click)="onTransactionDeleteRequested.emit(transaction.id)">delete</i>
+                        </td>
                     </tr>
                 </ng-container>
             </tbody>

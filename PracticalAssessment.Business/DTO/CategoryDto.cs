@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
 
-        public CategoryType Type { get; private set; }
+        public CategoryType Type { get; set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
     }
 }

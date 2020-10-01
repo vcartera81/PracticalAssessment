@@ -1,0 +1,16 @@
+.label {
+    font-weight: 600;
+    display: block;
+}
+
+.form-section {
+    background-color: #f8f8f8;
+    padding: 7px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-top: 1px solid #e3e3e3;
+}
+
+.wrapper {
+    margin-top: 8px;
+}

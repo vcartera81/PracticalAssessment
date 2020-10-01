@@ -2,7 +2,7 @@
 
 namespace PracticalAssessment.DataAccessContract
 {
-    public interface ICurrencyRepository : IListAllOperationRepository<Currency>
+    public interface ICurrencyRepository : IReadOnlyOperationRepository<Currency>
     {
     }
 }

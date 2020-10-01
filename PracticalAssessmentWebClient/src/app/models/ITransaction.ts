@@ -5,7 +5,7 @@ import IRecipient from './IRecipient';
 
 export default interface ITransaction {
     id: number;
-    occuredOn: Moment;
+    occuredOn: Moment | string;
     title: string;
     amount: number;
     currency: ICurrency;

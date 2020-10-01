@@ -2,7 +2,7 @@
 
 namespace PracticalAssessment.DataAccessContract
 {
-    public interface IRecipientRepository : IListAllOperationRepository<Recipient>
+    public interface IRecipientRepository : IReadOnlyOperationRepository<Recipient>
     {
     }
 }

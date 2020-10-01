@@ -2,7 +2,72 @@
 <h1 mat-dialog-title *ngIf="inputTransaction.id">Edit transaction</h1>
 <form [formGroup]="transactionEditorForm" (ngSubmit)="onSubmit()">
     <div mat-dialog-content>
-
+        <div class="row">
+            <div class="col-md-12">
+                <app-form-field sectionLabel="For date">
+                    <mat-form-field>
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="occuredOn">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </app-form-field>
+                <app-form-field sectionLabel="Title">
+                    <input formControlName="title" autocomplete="off" matInput type="text" />
+                    <mat-error
+                        *ngIf="!transactionEditorForm.pristine && transactionEditorForm.controls['title']?.errors?.required">
+                        Title is a required field.
+                    </mat-error>
+                </app-form-field>
+                <app-form-field sectionLabel="Recipient">
+                    <mat-form-field class="full-width">
+                        <mat-label>Recipient</mat-label>
+                        <mat-select [(value)]="selectedRecipientId" formControlName="recipient">
+                            <mat-option *ngFor="let entry of allRecipients" [value]="entry.id">{{entry.name}}
+                                ({{entry.id}})
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="!transactionEditorForm.pristine && transactionEditorForm.controls['recipient']?.errors?.required">
+                        Recipient is a required field.</mat-error>
+                </app-form-field>
+                <app-form-field sectionLabel="Category">
+                    <mat-form-field class="full-width">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(value)]="selectedCategoryId" formControlName="category">
+                            <mat-option *ngFor="let entry of allCategories" [value]="entry.id">{{entry.name}}
+                                ({{entry.id}})
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="!transactionEditorForm.pristine && transactionEditorForm.controls['category']?.errors?.required">
+                        Category is a required field.</mat-error>
+                </app-form-field>
+                <app-form-field sectionLabel="Currency">
+                    <mat-form-field class="full-width">
+                        <mat-label>Currency</mat-label>
+                        <mat-select [(value)]="selectedCurrencyId" formControlName="currency">
+                            <mat-option *ngFor="let entry of allCurrencies" [value]="entry.id">{{entry.code}}
+                                ({{entry.name}})
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="!transactionEditorForm.pristine && transactionEditorForm.controls['currency']?.errors?.required">
+                        Currency is a required field.</mat-error>
+                </app-form-field>
+                <app-form-field sectionLabel="Amount" *ngIf="selectedCurrencyId">
+                    <app-amount-input class="full-width" formControlName="amount" [currency]="getCurrencyCodeById()">
+                    </app-amount-input>
+                    <mat-error
+                        *ngIf="!transactionEditorForm.pristine && transactionEditorForm.controls['amount']?.errors?.isNull">
+                        Amount is a required field.
+                    </mat-error>
+                </app-form-field>
+            </div>
+        </div>
     </div>
     <div mat-dialog-actions class="float-right">
         <button type="button" mat-raised-button (click)="cancel()">Cancel</button>

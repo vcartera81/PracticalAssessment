@@ -6,6 +6,6 @@ namespace PracticalAssessment.Business
 {
     public interface ICategoryService
     {
-        public Task<IEnumerable<CategoryDto>> GetAll();
+        Task<IEnumerable<CategoryDto>> GetAll();
     }
 }

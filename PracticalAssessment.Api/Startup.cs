@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PracticalAssessment.Api.Middlewares;
 using PracticalAssessment.Business;
 using PracticalAssessment.SqlDataAccess;
 
@@ -60,6 +61,8 @@ namespace PracticalAssessment.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseSwagger();
             app.UseSwaggerUI(_ => _.SwaggerEndpoint("/swagger/v1/swagger.json", "Spendings API v1.0"));

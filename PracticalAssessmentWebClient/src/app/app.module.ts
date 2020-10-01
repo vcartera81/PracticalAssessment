@@ -14,9 +14,21 @@ import { TransactionService } from './services/transaction.service';
 import { TransactionEditorComponent } from './components/shared/transaction-editor/transaction-editor.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { RecipientService } from './services/recipient.service';
+import { CurrencyService } from './services/currency.service';
+import { CategoryService } from './services/category.service';
+import { FormFieldComponent } from './components/shared/form-field/form-field.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AmountInputComponent } from './components/shared/amount-input/amount-input.component';
+import { CategoriesPageComponent } from './components/sections/categories-page/categories-page.component';
 
 const appRoutes: Routes = [
   { path: 'transactions', component: TransactionsPageComponent },
+  { path: 'categories', component: CategoriesPageComponent },
   { path: '**', redirectTo: '/transactions', pathMatch: 'full' },
 ];
 
@@ -26,7 +38,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     TransactionsPageComponent,
     TransactionListComponent,
-    TransactionEditorComponent
+    TransactionEditorComponent,
+    FormFieldComponent,
+    AmountInputComponent,
+    CategoriesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +49,11 @@ const appRoutes: Routes = [
     FormsModule,
     AppRoutingModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatMomentDateModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
@@ -43,7 +63,10 @@ const appRoutes: Routes = [
     ),
   ],
   providers: [ 
-    TransactionService
+    TransactionService,
+    RecipientService,
+    CurrencyService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

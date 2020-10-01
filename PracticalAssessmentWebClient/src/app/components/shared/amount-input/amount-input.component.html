@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-10">
+        <input autocomplete="off" matInput type="number" [(ngModel)]="value" />
+    </div>
+    <div class="col-md-2">
+        <span class="currency">{{currency}}</span>
+    </div>
+</div>
+<mat-error *ngIf="!control.pristine && control?.errors?.notANumber">This is not a number.</mat-error>
+<mat-error *ngIf="!control.pristine && control?.errors?.zeroOrLess">Amount can't be negative or zero.</mat-error>

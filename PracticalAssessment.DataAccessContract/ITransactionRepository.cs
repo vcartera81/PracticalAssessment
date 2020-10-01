@@ -6,8 +6,8 @@ using PracticalAssessment.DataAccessContract.Entities;
 
 namespace PracticalAssessment.DataAccessContract
 {
-    public interface ITransactionRepository : IListAllOperationRepository<Transaction>
+    public interface ITransactionRepository : IReadOnlyOperationRepository<Transaction>, IPersistentOperationRepository<Transaction>
     {
-        public Task<IEnumerable<IGrouping<DateTime, Transaction>>> ListGroupedByDateAsync();
+        Task<IEnumerable<IGrouping<DateTime, Transaction>>> ListGroupedByDateAsync();
     }
 }

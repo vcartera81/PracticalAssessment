@@ -26,7 +26,7 @@ namespace PracticalAssessment.SqlDataAccess.Repositories
 
             return all
                 .OrderByDescending(_ => _.OccuredOn)
-                .GroupBy(_ => _.OccuredOn);
+                .GroupBy(_ => _.OccuredOn.Date);
         }
     }
 }

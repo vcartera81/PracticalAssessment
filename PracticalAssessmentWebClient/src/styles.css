@@ -3,5 +3,23 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
+html, body { height: 100%; width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.full-width {
+    width: 100%;
+}
+
+.button-like {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.page-label {
+    font-size: 27px;
+    position: relative;
+    display: inline-block;
+    margin-top: 25px!important;
+    margin-bottom: 16px!important;
+    color: #7985ae;
+}
