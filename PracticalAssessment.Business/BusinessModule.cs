@@ -19,6 +19,7 @@ namespace PracticalAssessment.Business
 
             // validators
             builder.RegisterType<TransactionValidator>().As<IValidator<TransactionDto>>();
+            builder.RegisterType<CategoryValidator>().As<IValidator<CategoryDto>>();
         }
     }
 }

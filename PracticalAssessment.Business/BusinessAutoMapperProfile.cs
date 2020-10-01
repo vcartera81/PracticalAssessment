@@ -9,9 +9,9 @@ namespace PracticalAssessment.Business
     {
         public BusinessAutoMapperProfile()
         {
-            CreateMap<Category, CategoryDto>();
-            CreateMap<Currency, CurrencyDto>();
-            CreateMap<Recipient, RecipientDto>();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Currency, CurrencyDto>().ReverseMap();
+            CreateMap<Recipient, RecipientDto>().ReverseMap();
             CreateMap<Transaction, TransactionDto>();
 
             CreateMap<TransactionDto, Transaction>()

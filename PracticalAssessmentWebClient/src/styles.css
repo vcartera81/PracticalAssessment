@@ -23,3 +23,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-bottom: 16px!important;
     color: #7985ae;
 }
+
+mat-radio-group.inline-options mat-radio-button {
+    margin-right: 9px;
+}
+
+[mat-dialog-actions] {
+    margin-top: 24px;
+    margin-bottom: -5px!important;
+}

@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>New category</h1>
+<form [formGroup]="categoryEditorForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="col-md-12">
+                <app-form-field sectionLabel="Type">
+                    <mat-radio-group formControlName="type" aria-label="Select an option" class="inline-options">
+                        <mat-radio-button [value]="1">Income</mat-radio-button>
+                        <mat-radio-button [value]="0">Outgo</mat-radio-button>
+                    </mat-radio-group>
+                </app-form-field>
+                <app-form-field sectionLabel="Name">
+                    <mat-form-field class="full-width">
+                        <input formControlName="name" autocomplete="off" matInput type="text" />
+                        <mat-error
+                            *ngIf="!categoryEditorForm.pristine && categoryEditorForm.controls['name']?.errors?.required">
+                            Name is a required field.
+                        </mat-error>
+                    </mat-form-field>
+                </app-form-field>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="float-right">
+        <button type="button" mat-raised-button (click)="cancel()">Cancel</button>
+        <button type="submit" [disabled]="categoryEditorForm.invalid" mat-raised-button color="primary"
+            cdkFocusInitial>Save</button>
+    </div>
+</form>

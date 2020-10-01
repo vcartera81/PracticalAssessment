@@ -20,11 +20,13 @@ import { CategoryService } from './services/category.service';
 import { FormFieldComponent } from './components/shared/form-field/form-field.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AmountInputComponent } from './components/shared/amount-input/amount-input.component';
 import { CategoriesPageComponent } from './components/sections/categories-page/categories-page.component';
+import { CategoryEditorComponent } from './components/shared/category-editor/category-editor.component';
 
 const appRoutes: Routes = [
   { path: 'transactions', component: TransactionsPageComponent },
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     TransactionEditorComponent,
     FormFieldComponent,
     AmountInputComponent,
-    CategoriesPageComponent
+    CategoriesPageComponent,
+    CategoryEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     MatMomentDateModule,
+    MatRadioModule,
     MatSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
