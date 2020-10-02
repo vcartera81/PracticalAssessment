@@ -7,5 +7,9 @@ namespace PracticalAssessment.Business
     public interface IRecipientService
     {
         Task<IEnumerable<RecipientDto>> GetAll();
+
+        Task Delete(int id);
+
+        Task<int> Add(RecipientDto category);
     }
 }

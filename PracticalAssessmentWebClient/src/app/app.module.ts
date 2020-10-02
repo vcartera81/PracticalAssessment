@@ -27,10 +27,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AmountInputComponent } from './components/shared/amount-input/amount-input.component';
 import { CategoriesPageComponent } from './components/sections/categories-page/categories-page.component';
 import { CategoryEditorComponent } from './components/shared/category-editor/category-editor.component';
+import { RecipientsPageComponent } from './components/sections/recipients-page/recipients-page.component';
+import { RecipientEditorComponent } from './components/shared/recipient-editor/recipient-editor.component';
 
 const appRoutes: Routes = [
   { path: 'transactions', component: TransactionsPageComponent },
   { path: 'categories', component: CategoriesPageComponent },
+  { path: 'recipients', component: RecipientsPageComponent },
   { path: '**', redirectTo: '/transactions', pathMatch: 'full' },
 ];
 
@@ -44,7 +47,9 @@ const appRoutes: Routes = [
     FormFieldComponent,
     AmountInputComponent,
     CategoriesPageComponent,
-    CategoryEditorComponent
+    CategoryEditorComponent,
+    RecipientsPageComponent,
+    RecipientEditorComponent
   ],
   imports: [
     BrowserModule,

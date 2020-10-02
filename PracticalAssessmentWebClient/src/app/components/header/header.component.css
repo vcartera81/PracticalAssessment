@@ -23,3 +23,15 @@
     display: block;
     position: relative;
 }
+
+.links-area {
+    position: relative;
+    top: 32px;
+    left: 19px;
+}
+
+.links-area a {
+    display: inline-block;
+    position: relative;
+    margin-right: 17px;
+}
