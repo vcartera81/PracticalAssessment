@@ -77,10 +77,12 @@ export class TransactionEditorComponent implements OnInit {
 
     if(this.inputTransaction.id && this.inputTransaction.id > 0) {
       await this.transactionService.update(model);
+      model.occuredOn = occuredOn;
       GlobalEvents.onTransactionUpdated.emit(model);
     }
     else {
       model.id = await this.transactionService.add(model);
+      model.occuredOn = occuredOn;
       GlobalEvents.onNewTransactionAdded.emit(model);
     }
 
